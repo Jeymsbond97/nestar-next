@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { useReactiveVar } from '@apollo/client';
 import { userVar } from '../../../apollo/store';
 
+//TrendPropertiesCards
 interface TrendPropertyCardProps {
 	property: Property;
 }
