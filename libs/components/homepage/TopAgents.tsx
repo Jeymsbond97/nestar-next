@@ -31,6 +31,7 @@ const TopAgents = (props: TopAgentsProps) => {
 		} = useQuery(GET_AGENTS, {
 			fetchPolicy: 'cache-and-network',
 			variables: { input: initialInput },
+			notifyOnNetworkStatusChange: true,
 			onCompleted: (data: T) => {
 				setTopAgents(data?.getAgents?.list);
 			}

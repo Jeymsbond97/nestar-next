@@ -13,10 +13,11 @@ import { userVar } from '../../../apollo/store';
 //TrendPropertiesCards
 interface TrendPropertyCardProps {
 	property: Property;
+	likePropertyHandler: any
 }
 
 const TrendPropertyCard = (props: TrendPropertyCardProps) => {
-	const { property } = props;
+	const { likePropertyHandler, property } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
 	const user = useReactiveVar(userVar);
@@ -112,7 +113,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 								<RemoveRedEyeIcon />
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyViews}</Typography>
-							<IconButton color={'default'}>
+							<IconButton color={'default'} onClick={() => likePropertyHandler(user, property?._id)}>
 								{property?.meLiked && property?.meLiked[0]?.myFavorite ? (
 									<FavoriteIcon style={{ color: 'red' }} />
 								) : (

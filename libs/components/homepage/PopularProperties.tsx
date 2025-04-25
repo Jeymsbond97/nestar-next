@@ -31,6 +31,7 @@ const PopularProperties = (props: PopularPropertiesProps) => {
 		} = useQuery(GET_PROPERTIES, {
 			fetchPolicy: 'cache-and-network',
 			variables: { input: initialInput },
+			notifyOnNetworkStatusChange: true,
 			onCompleted: (data: T) => {
 				setPopularProperties(data?.getProperties?.list);
 			}
