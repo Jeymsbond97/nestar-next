@@ -36,7 +36,7 @@ const TopAgents = (props: TopAgentsProps) => {
 			}
 		});
 	/** HANDLERS **/
-	console.log("TopAGents =>", getAgentsError)
+	console.log("TopAGents =>", getAgentsData,)
 	console.log("SENT INPUT =>", initialInput);
 
 
