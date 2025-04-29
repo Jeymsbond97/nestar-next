@@ -157,7 +157,10 @@ export const logOut = () => {
 	deleteStorage();
 	deleteUserInfo();
 	window.location.reload();
+	window.location.href = '/';
 };
+
+
 
 const deleteStorage = () => {
 	localStorage.removeItem('accessToken');
