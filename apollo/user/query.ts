@@ -66,7 +66,7 @@ query GetMember($input: String!) {
         memberLikes
         memberViews
         memberFollowings
-		memberFollowers
+		memberFollewers
         memberRank
         memberWarnings
         memberBlocks
