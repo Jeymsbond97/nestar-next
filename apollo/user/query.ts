@@ -284,7 +284,7 @@ export const GET_FAVORITES = gql`
 					memberViews
 					memberComments
 					memberFollowings
-					memberFollowers
+					memberFollewers
 					memberRank
 					memberWarnings
 					memberBlocks
@@ -347,7 +347,7 @@ export const GET_VISITED = gql`
 					memberViews
 					memberComments
 					memberFollowings
-					memberFollowers
+					memberFollewers
 					memberRank
 					memberWarnings
 					memberBlocks

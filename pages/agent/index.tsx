@@ -118,7 +118,7 @@ const AgentList: NextPage = ({ initialInput, ...props }: any) => {
 
 					await sweetTopSmallSuccessAlert('success', 800);
 				} catch (err: any) {
-					console.log('ERROR, likePropertyHandler:', err.message);
+					console.log('ERROR, likeMemberHandler:', err.message);
 					sweetMixinErrorAlert(err.message).then();
 				}
 			};
