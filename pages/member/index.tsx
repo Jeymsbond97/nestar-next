@@ -51,13 +51,12 @@ const MemberPage: NextPage = () => {
 	/** HANDLERS **/
 	const subscribeHandler = async (id: string, refetch: any, query: any) => {
 		try {
-			console.log('id: ', id);
 				if (!id) throw new Error(Messages.error1)
 				if (!user._id) throw new Error(Messages.error2);
 				await subscribe({
 					variables: { input: id },
 				});
-				await sweetTopSmallSuccessAlert('Subscribed', 800);
+				await sweetTopSmallSuccessAlert('Followed', 800);
 				await refetch({input: query});
 		} catch (err: any) {
 			sweetErrorHandling(err).then();
@@ -71,7 +70,7 @@ const MemberPage: NextPage = () => {
 			await unsubscribe({
 				variables: { input: id },
 			});
-			await sweetTopSmallSuccessAlert('Subscribed', 800);
+			await sweetTopSmallSuccessAlert('Unfollowed', 800);
 			await refetch({input: query})
     	    } catch (err: any) {
 			sweetErrorHandling(err).then();
@@ -89,15 +88,16 @@ const MemberPage: NextPage = () => {
 
 	const likeMemberHandler = async (id: string, refetch: any, query: any) => {
 		try {
-				if (!id) throw new Error(Messages.error1)
+				if (!id) return
 				if (!user._id) throw new Error(Messages.error2);
 				await likeTargetMember({
 					variables: { input: id },
 				});
-				await sweetTopSmallSuccessAlert('Subscribed', 800);
+				await sweetTopSmallSuccessAlert('Success!', 800);
 				await refetch({input: query})
 		} catch (err: any) {
-			sweetErrorHandling(err).then();
+			console.log("ERROR:, LikeMemberHandler:", err.message)
+			sweetErrorHandling(err.message).then();
 		}
 	};
 

@@ -34,7 +34,7 @@ const MemberArticles: NextPage = ({ initialInput, ...props }: any) => {
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
 			setMemberBoArticles(data?.getBoardArticles?.list);
-			setTotal(data?.getBoardArticles?.metaCounter[0]?.total);
+			setTotal(data?.getBoardArticles?.metaCounter?.[0]?.total || 0);
 		},
 	});
 
@@ -82,7 +82,11 @@ const MemberArticles: NextPage = ({ initialInput, ...props }: any) => {
 						</div>
 					)}
 					{memberBoArticles?.map((boardArticle: BoardArticle) => {
-						return <CommunityCard likeArticleHandler={likeArticleHandler} boardArticle={boardArticle} key={boardArticle?._id} size={'small'} />;
+						return <CommunityCard
+							likeArticleHandler={likeArticleHandler}
+							boardArticle={boardArticle}
+							key={boardArticle?._id}
+							size={'small'} />;
 					})}
 				</Stack>
 				{memberBoArticles?.length !== 0 && (
