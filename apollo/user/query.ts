@@ -552,7 +552,7 @@ export const GET_MEMBER_FOLLOWERS = gql`
 					memberViews
 					memberComments
 					memberFollowings
-					memberFollowers
+					memberFollewers
 					memberRank
 					memberWarnings
 					memberBlocks
@@ -595,7 +595,7 @@ export const GET_MEMBER_FOLLOWINGS = gql`
 					memberViews
 					memberComments
 					memberFollowings
-					memberFollowers
+					memberFollewers
 					memberRank
 					memberWarnings
 					memberBlocks

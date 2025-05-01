@@ -19,7 +19,7 @@ export interface Member {
 	memberArticles: number;
 	memberPoints: number;
 	memberLikes: number;
-	memberFollowers?: number;
+	memberFollewers?: number;
 	memberFollowings?: number;
 	memberViews: number;
 	memberComments: number;
