@@ -100,8 +100,8 @@ export const REMOVE_PROPERTY_BY_ADMIN = gql`
  *************************/
 
 export const UPDATE_BOARD_ARTICLE_BY_ADMIN = gql`
-	mutation UpdateBoardArticleByAdmin($input: BoardArticleUpdate!) {
-		updateBoardArticleByAdmin(input: $input) {
+	mutation UpdateBoardArticlesByAdmin($input: BoardArticleUpdate!) {
+		updateBoardArticlesByAdmin(input: $input) {
 			_id
 			articleCategory
 			articleStatus
