@@ -32,7 +32,7 @@ interface MISearch {
 	text?: string;
 }
 
-export interface MembersInquiry {
+export interface MemberInquery {
 	page: number;
 	limit: number;
 	sort?: string;
