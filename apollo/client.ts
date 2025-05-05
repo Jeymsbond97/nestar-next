@@ -7,6 +7,7 @@ import { onError } from '@apollo/client/link/error';
 import { getJwtToken } from '../libs/auth';
 import { TokenRefreshLink } from 'apollo-link-token-refresh';
 import { sweetErrorAlert } from '../libs/sweetAlert';
+import { socketVarOrginal } from './store';
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 function getHeaders() {
@@ -27,6 +28,38 @@ const tokenRefreshLink = new TokenRefreshLink({
 		return null;
 	},
 });
+
+// Custom WebSocket client
+class LoggingWebSocket {
+	private socket: WebSocket;
+
+	constructor(url: string) {
+		this.socket = new WebSocket(`${url}?token=${getJwtToken()}`);
+		socketVarOrginal(this.socket)
+
+	this.socket.onopen = () => {
+		console.log("WebSocket connection");
+	};
+
+	this.socket.onmessage = (msg) => {
+		console.log("WebSocket message:", msg.data);
+	};
+
+	this.socket.onerror = (error) => {
+		console.log("WebSocket, error:", error);
+	};
+	}
+
+	send(
+		data: string | ArrayBuffer | SharedArrayBuffer | Blob | ArrayBufferView
+	) {
+		this.socket.send(data);
+	}
+
+	close() {
+	this.socket.close();
+	}
+}
 
 function createIsomorphicLink() {
 	if (typeof window !== 'undefined') {
@@ -56,6 +89,7 @@ function createIsomorphicLink() {
 					return { headers: getHeaders() };
 				},
 			},
+			webSocketImpl: LoggingWebSocket
 		});
 
 		const errorLink = onError(({ graphQLErrors, networkError, response }) => {
@@ -106,6 +140,10 @@ export function useApollo(initialState: any) {
 	return useMemo(() => initializeApollo(initialState), [initialState]);
 }
 
+
+function socketVar(socket: WebSocket) {
+	throw new Error('Function not implemented.');
+}
 /**
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 
