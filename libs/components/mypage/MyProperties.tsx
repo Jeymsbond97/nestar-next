@@ -39,6 +39,7 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 				setTotal(data?.getAgentProperties?.metaCounter[0]?.total);
 			},
 		});
+	console.log('getCompanyProperties:', agentProperties)
 
 	/** HANDLERS **/
 	const paginationHandler = (e: T, value: number) => {

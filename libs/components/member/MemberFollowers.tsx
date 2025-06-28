@@ -111,7 +111,7 @@ const MemberFollowers = (props: MemberFollowsProps) => {
 									</Box>
 									<Box className={'info-box'} component={'div'}>
 										{follower?.meLiked && follower?.meLiked[0]?.myFavorite ? (
-											<FavoriteIcon color="primary"onClick={() =>
+											<FavoriteIcon color="primary" onClick={() =>
 												likeMemberHandler(follower.followerData?._id, getMemberFollowersRefetch, followInquiry)
 											}/>
 										) : (

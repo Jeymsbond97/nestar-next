@@ -166,14 +166,10 @@ const Chat = () => {
 								</Box>
 								) : (
 									<Box flexDirection={'row'} style={{ display: 'flex' }} sx={{ m: '10px 0px' }} component={'div'}>
-									<Avatar alt={'jonik'} src={memberImage} />
-									<div className={'msg-left'}>{ text}</div>
-								</Box>
-								)
- 				            })}
-							<>
-
-							</>
+										<Avatar alt={'jonik'} src={memberImage} />
+										<div className={'msg-left'}>{ text}</div>
+								    </Box>
+								)})}
 						</Stack>
 					</ScrollableFeed>
 				</Box>
